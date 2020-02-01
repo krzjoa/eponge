@@ -1,0 +1,17 @@
+destination: docs
+template:
+  params:
+    bootswatch: cosmo
+authors:
+  Krzysztof Joachimiak:
+    href: https://krzjoa.github.io
+reference:
+- title: Erase objects by type
+  contents:
+  - erase_functions
+  - erase_non_functions
+  - erase_df
+- title: Erase masking objects from global environment
+  contents:
+  - erase_masking_objects
+  - erase_masking_functions
