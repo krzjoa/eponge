@@ -12,8 +12,11 @@
    data-name="Layer 1"
    viewBox="0 0 735 852"
    version="1.1"
-   sodipodi:docname="sponge2.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   sodipodi:docname="logo.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="/home/krzysztof/Pulpit/sponge/man/figures/logo.svg.png"
+   inkscape:export-xdpi="315.49295"
+   inkscape:export-ydpi="315.49295">
   <metadata
      id="metadata127">
     <rdf:RDF>
@@ -38,9 +41,9 @@
      inkscape:window-height="703"
      id="namedview125"
      showgrid="false"
-     inkscape:zoom="0.52771759"
-     inkscape:cx="15.403105"
-     inkscape:cy="319.06936"
+     inkscape:zoom="0.38335608"
+     inkscape:cx="-204.86556"
+     inkscape:cy="263.74043"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -190,7 +193,7 @@
            height="102.32746"
            x="348.67136"
            y="141.39264" /></flowRegion><flowPara
-         id="flowPara222"></flowPara></flowRoot>    <g
+         id="flowPara222" /></flowRoot>    <g
        id="g322"
        transform="translate(0.05626868,8.41772)">
       <g
