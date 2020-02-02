@@ -64,6 +64,8 @@ erase_data <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
 #' @export
 erase_values <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
 
+  # TODO: handle S4 class constructor removal is.function(!)
+
   if (is.null(pattern))
     objects <- ls(envir = envir)
   else
@@ -71,7 +73,7 @@ erase_values <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
 
   filtering_function <- function(x){
     object <- get(x, envir = envir)
-    (is.list(object) | is.environment(object)) & (!is.function(object))
+    !is.list(object) & !is.environment(object) & (!is.function(object))
   }
 
   objects <- Filter(filtering_function, objects)

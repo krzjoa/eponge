@@ -1,7 +1,8 @@
 Package: sponge
+Type: Package
 Title: Keep Your Environment Clean
 Version: 0.1.0
-  Authors@R: 
+Authors@R: 
       person("Krzysztof",
              family = "Joachimiak",
              role = c("aut", "cre"),

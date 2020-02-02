@@ -11,6 +11,8 @@ erase_non_functions(pattern = NULL, envir = globalenv(),
 \item{pattern}{regex pattern to select a set of functions; default: NULL}
 
 \item{envir}{environment; default: global environment}
+
+\item{verbose}{print removed objects' names}
 }
 \description{
 Remove all the objects, that are not functions
