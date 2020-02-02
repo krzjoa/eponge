@@ -8,6 +8,10 @@ authors:
 reference:
 - title: Erase objects by type
   contents:
+  - erase
+  - erase_if
+  - erase_data
+  - erase_values
   - erase_functions
   - erase_non_functions
   - erase_df
