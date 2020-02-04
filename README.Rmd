@@ -32,4 +32,27 @@ A small utility which makes selective objects removing easier.
 devtools::install_github("krzjoa/sponge")
 ```
 
+## Usage
+
+Many times we can meet a situation, when we want to clean our environment selectiely.
+Suppose we just wrote a couple of functions, which have the same names as the ones
+existing in already attached libraries.
+
+```r
+filter <- function(x, id){
+  x %>% 
+  filter(ID == id)
+}
+
+sponge::erase_masking_functions()
+```
+
+Sometimes, we may want to tidy our messy enivornment: he have functions we would like to keep, while in the same time there are many temporary objects created in exploration.
+
+```r
+sponge::erase_data()
+```
+
+
+
 

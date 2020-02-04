@@ -11,6 +11,8 @@ erase_masking_functions(pattern = NULL, verbose = FALSE)
 }
 \arguments{
 \item{pattern}{a regex pattern}
+
+\item{verbose}{print removed objects' names}
 }
 \description{
 Erase objects from GlobalEnv, which are masking objects from attached packages
