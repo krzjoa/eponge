@@ -12,16 +12,8 @@
 #' ls()
 #' @export
 erase <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
-
-  if (is.null(pattern))
-    objects <- ls(envir = envir)
-  else
-    objects <- ls(envir = envir, pattern= pattern)
-
-  if (verbose)
-    print(sprintf("Removed objects: %s", paste(objects, collapse = ",")))
-
-  rm(list = objects, envir = envir)
+  .abstract_erase_by_type(filtering.function = NULL, list.function = ls,
+                          envir = envir, verbose = verbose)
 }
 
 
@@ -39,16 +31,10 @@ erase <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 #' @export
 erase_if <- function(condition, pattern = NULL, envir = globalenv(), verbose = FALSE){
 
-  if (is.null(pattern))
-    objects <- ls(envir = envir)
-  else
-    objects <- ls(envir = envir, pattern = pattern)
+  filtering_function <- function(x){
+    condition(get(x, envir = envir))
+  }
 
-  objects <- Filter(function(x) condition(get(x, envir = envir)),
-                    objects)
-  if (verbose)
-    print(sprintf("Removed objects: %s", paste(objects, collapse = ",")))
-
-  rm(list = objects, envir = envir)
+  .abstract_erase_by_type(filtering.function = filtering_function,
+                          list.function = ls, envir = envir, verbose = verbose)
 }
-

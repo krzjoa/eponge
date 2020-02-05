@@ -12,16 +12,7 @@
 #' ls()
 #' @export
 erase_functions <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
-
-  if (is.null(pattern))
-    objects <- lsf.str(envir = envir)
-  else
-    objects <- lsf.str(envir = envir, pattern= pattern)
-
-  if (verbose)
-    print(sprintf("Removed objects: %s", paste(objects, collapse = ",")))
-
-  rm(list = objects, envir = envir)
+   .abstract_erase_by_type(list.function = lsf.str, envir = envir, verbose = verbose)
 }
 
 #' @name erase_data
@@ -33,24 +24,15 @@ erase_functions <- function(pattern = NULL, envir = globalenv(), verbose = FALSE
 #' value <- 7
 #' erase_non_functions(verbose = TRUE)
 #' @export
-erase_data <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
-
-  if (is.null(pattern))
-    objects <- ls(envir = envir)
-  else
-    objects <- ls(envir = envir, pattern = pattern)
+erase_data <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 
   filtering_function <- function(x){
     object <- get(x, envir = envir)
     (is.list(object) | is.environment(object)) & (!is.function(object))
   }
 
-  objects <- Filter(filtering_function, objects)
-
-  if (verbose)
-    print(sprintf("Removed objects: %s", paste(objects, collapse = ", ")))
-
-  rm(list = objects, envir = envir)
+  .abstract_erase_by_type(filtering.function = filtering_function,
+                          list.function = ls, envir = envir, verbose = verbose)
 }
 
 #' @name erase_values
@@ -62,28 +44,17 @@ erase_data <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
 #' value <- 7
 #' erase_non_functions(verbose = TRUE)
 #' @export
-erase_values <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
+erase_values <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 
   # TODO: handle S4 class constructor removal is.function(!)
-
-  if (is.null(pattern))
-    objects <- ls(envir = envir)
-  else
-    objects <- ls(envir = envir, pattern = pattern)
-
   filtering_function <- function(x){
     object <- get(x, envir = envir)
     !is.list(object) & !is.environment(object) & (!is.function(object))
   }
 
-  objects <- Filter(filtering_function, objects)
-
-  if (verbose)
-    print(sprintf("Removed objects: %s", paste(objects, collapse = ", ")))
-
-  rm(list = objects, envir = envir)
+  .abstract_erase_by_type(filtering.function = filtering_function,
+                          list.function = ls, envir = envir, verbose = verbose)
 }
-
 
 #' @name erase_non_functions
 #' @title Remove all the objects, that are not functions
@@ -94,19 +65,15 @@ erase_values <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
 #' value <- 7
 #' erase_non_functions(verbose = TRUE)
 #' @export
-erase_non_functions <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
+erase_non_functions <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 
-  if (is.null(pattern))
-    objects <- ls(envir = envir)
-  else
-    objects <- ls(envir = envir, pattern = pattern)
+  filtering_function <- function(x){
+    object <- get(x, envir = envir)
+    !is.function(object)
+  }
 
-  objects <- setdiff(objects, lsf.str(envir = envir))
-
-  if (verbose)
-    print(sprintf("Removed objects: %s", paste(objects, collapse = ", ")))
-
-  rm(list = objects, envir = envir)
+  .abstract_erase_by_type(filtering.function = filtering_function,
+                          list.function = ls, envir = envir, verbose = verbose)
 }
 
 #' @name erase_df
@@ -118,18 +85,12 @@ erase_non_functions <- function(pattern = NULL, envir = globalenv(), verbose = T
 #' value <- 7
 #' erase_non_functions(verbose = TRUE)
 #' @export
-erase_df <- function(pattern = NULL, envir = globalenv(), verbose = TRUE){
+erase_df <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 
-  if (is.null(pattern))
-    objects <- ls(envir = envir)
-  else
-    objects <- ls(envir = envir, pattern = pattern)
+  filtering_function <- function(x){
+    is.data.frame(get(x, envir = envir))
+  }
 
-  objects <- Filter(function(x) is.data.frame(get(x, envir = envir)),
-                    objects)
-
-  if (verbose)
-    print(sprintf("Removed objects: %s", paste(objects, collapse = ", ")))
-
-  rm(list = objects, envir = envir)
+  .abstract_erase_by_type(filtering.function = filtering_function,
+                          list.function = ls, envir = envir, verbose = verbose)
 }

@@ -37,12 +37,10 @@ erase_masking_functions <- function(pattern = NULL, verbose = FALSE){
 
   global.ev.conflicts <- Filter(function(x) !is.vector(get(x, envir = globalenv())),
                                 global.ev.conflicts)
-
   if (verbose)
     print(global.ev.conflicts)
 
   if (!is.null(global.ev.conflicts))
     rm(list = global.ev.conflicts, envir = globalenv())
-
 }
 
