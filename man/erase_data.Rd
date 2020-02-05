@@ -4,7 +4,7 @@
 \alias{erase_data}
 \title{Remove all objects, which are listed in `Data` section in RStudio}
 \usage{
-erase_data(pattern = NULL, envir = globalenv(), verbose = TRUE)
+erase_data(pattern = NULL, envir = globalenv(), verbose = FALSE)
 }
 \arguments{
 \item{pattern}{regex pattern to select a set of functions; default: NULL}

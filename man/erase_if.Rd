@@ -8,6 +8,8 @@ erase_if(condition, pattern = NULL, envir = globalenv(),
   verbose = FALSE)
 }
 \arguments{
+\item{condition}{function or lambda expression (one side formula)}
+
 \item{pattern}{regex pattern to select a set of functions; default: NULL}
 
 \item{envir}{environment; default: global environment}
@@ -25,4 +27,10 @@ z <- function(x) x +2
 l <- list(1,2,3,4)
 erase_if(is.list)
 ls()
+# You may use lambda expression
+erase_if(~ is.function(.x) | is.data.frame(.x))
+x <- 5
+sample_function <- function(x) x +2
+cars.2 <- cars
+erase_if(~ if (is.numeric(.x)) .x == 5 else FALSE)
 }

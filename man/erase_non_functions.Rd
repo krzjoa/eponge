@@ -5,7 +5,7 @@
 \title{Remove all the objects, that are not functions}
 \usage{
 erase_non_functions(pattern = NULL, envir = globalenv(),
-  verbose = TRUE)
+  verbose = FALSE)
 }
 \arguments{
 \item{pattern}{regex pattern to select a set of functions; default: NULL}

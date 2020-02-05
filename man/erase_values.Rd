@@ -4,7 +4,7 @@
 \alias{erase_values}
 \title{Remove all objects, which are listed in `Values` section in RStudio}
 \usage{
-erase_values(pattern = NULL, envir = globalenv(), verbose = TRUE)
+erase_values(pattern = NULL, envir = globalenv(), verbose = FALSE)
 }
 \arguments{
 \item{pattern}{regex pattern to select a set of functions; default: NULL}
