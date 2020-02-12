@@ -3,13 +3,15 @@ Type: Package
 Title: Keep Your Environment Clean
 Version: 0.1.0
 Authors@R: 
-      person("Krzysztof",
-             family = "Joachimiak",
-             role = c("aut", "cre"),
-             email = "joachimiak.krzysztof@gmail.com",
+      person(given   = "Krzysztof",
+             family  = "Joachimiak",
+             role    = c("aut", "cre"),
+             email   = "joachimiak.krzysztof@gmail.com",
              comment = c(ORCID = "0000-0003-4780-7947"))
-Description: A small utility which makes selective objects removing easier.
+Description: Provides a set of functions, which facilitates emoving objects from an environment. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+Suggests: 
+    testthat

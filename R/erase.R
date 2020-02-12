@@ -12,7 +12,7 @@
 #' ls()
 #' @export
 erase <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
-  .abstract_erase_by_type(filtering.function = NULL, list.function = ls,
+  .abstract_erase_by_type(pattern = pattern, filtering.function = NULL, list.function = ls,
                           envir = envir, verbose = verbose)
 }
 
