@@ -12,6 +12,8 @@ Description: Provides a set of functions, which facilitates emoving objects from
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+BugReports: https://github.com/krzjoa/sponge/issues
+URL: https://github.com/krzjoa/sponge, https://krzjoa.github.io/sponge/
 RoxygenNote: 6.1.1
 Suggests: 
     testthat
