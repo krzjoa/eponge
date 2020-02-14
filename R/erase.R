@@ -17,6 +17,7 @@ erase <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 }
 
 # TODO: sponge::erase(~ is(data.frame) & name(stores)) defining with formula
+# sponge::default_env(local); sponge::default_env(global)
 
 #' @name erase_if
 #' @title Remove objects, which fulfill determined conditions
