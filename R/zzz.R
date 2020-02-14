@@ -1,3 +1,4 @@
+# See: https://github.com/tidyverse/dplyr/blob/7034c8ef12638d1de960ac7b6e970629f0d711d1/R/zzz.r#L4
 .onLoad <- function(libname, pkgname) {
   # Active binding?
   options()
