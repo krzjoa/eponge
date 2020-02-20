@@ -37,11 +37,6 @@ erase <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 #' l <- list(1,2,3,4)
 #' erase_if(~ is.function(.x) | is.data.frame(.x), envir = environment())
 #' ls()
-#' x <- 5
-#' sample_function <- function(x) x +2
-#' cars.2 <- cars
-#' erase_if(~ if (is.numeric(.x)) .x == 5 else FALSE)
-#' ls()
 #' @importFrom rlang as_function
 #' @export
 erase_if <- function(condition, pattern = NULL, envir = globalenv(), verbose = FALSE){

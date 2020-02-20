@@ -17,7 +17,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Keep Your Environment Clean">
-<meta property="og:description" content="Provides a set of functions, which facilitates emoving objects from an environment. ">
+<meta property="og:description" content="Provides a set of functions, which facilitates removing objects from an environment. 
+              It allows to delete objects specified with regular expession or with other conditions (e.g. if object is numeric),
+              using one function call.    ">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -95,15 +97,25 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>Many times we can meet a situation, when we want to clean our environment selectiely. Suppose we just wrote a couple of functions, which have the same names as the ones existing in already attached libraries.</p>
+<p>Many times we can meet a situation, when we want to clean our environment selectively. Suppose we just wrote a couple of functions, which have the same names as the ones existing in already attached libraries.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">filter &lt;-<span class="st"> </span><span class="cf">function</span>(x, id){</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">  x <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(ID <span class="op">==</span><span class="st"> </span>id)</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">}</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">sponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/sponge/man/erase_masking.html">erase_masking_functions</a></span>()</a></code></pre></div>
-<p>Sometimes, we may want to tidy our messy enivornment: he have functions we would like to keep, while in the same time there are many temporary objects created in exploration.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">sponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/sponge/man/erase_data.html">erase_data</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb2-6" data-line-number="6">cars &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">sponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/sponge/man/erase_masking.html">erase_masking</a></span>()</a></code></pre></div>
+<p>Sometimes, we may want to tidy our messy enivornment: we have objects we would like to keep, while in the same time there are many temporary objects created in exploration.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">cars<span class="fl">.2</span> &lt;-<span class="st"> </span>cars</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">cars<span class="fl">.2</span><span class="op">$</span>speed &lt;-<span class="st"> </span>cars<span class="fl">.2</span><span class="op">$</span>speed <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">new.iris &lt;-<span class="st"> </span>iris[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, ]</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">add_two &lt;-<span class="st"> </span><span class="cf">function</span>(x) x <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># Normally, we don't have to pass envir argument, because it indicates global environment by default</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">sponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/sponge/man/erase_data.html">erase_data</a></span>(<span class="dt">envir =</span> <span class="kw"><a href="https://rdrr.io/r/base/environment.html">environment</a></span>())</a></code></pre></div>
 </div>
 </div>
   </div>

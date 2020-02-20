@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 
 # sponge <img src='man/figures/logo.png' align="right" height="139" />
 > Keep your environment clean
+
 <!-- badges: start -->
 [![Documentation](https://img.shields.io/badge/documentation-sponge-orange.svg?colorB=E91E63)](http://krzjoa.github.io/sponge/)
 [![Travis build status](https://travis-ci.org/krzjoa/sponge.svg?branch=master)](https://travis-ci.org/krzjoa/sponge)

@@ -164,12 +164,7 @@
 <span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='no'>x</span> +<span class='fl'>2</span>
 <span class='no'>l</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>)
 <span class='fu'>erase_if</span>(~ <span class='fu'><a href='https://rdrr.io/r/base/is.function.html'>is.function</a></span>(<span class='no'>.x</span>) <span class='kw'>|</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>is.data.frame</a></span>(<span class='no'>.x</span>), <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>environment</a></span>())
-<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>()</div><div class='output co'>#&gt; [1] "l" "y"</div><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fl'>5</span>
-<span class='no'>sample_function</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='no'>x</span> +<span class='fl'>2</span>
-<span class='no'>cars.2</span> <span class='kw'>&lt;-</span> <span class='no'>cars</span>
-<span class='fu'>erase_if</span>(~ <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>is.numeric</a></span>(<span class='no'>.x</span>)) <span class='no'>.x</span> <span class='kw'>==</span> <span class='fl'>5</span> <span class='kw'>else</span> <span class='fl'>FALSE</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>()</div><div class='output co'>#&gt; [1] "cars.2"          "l"               "sample_function" "x"              
-#&gt; [5] "y"              </div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>()</div><div class='output co'>#&gt; [1] "l" "y"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

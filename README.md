@@ -3,15 +3,19 @@
 
 # sponge <img src='man/figures/logo.png' align="right" height="139" />
 
-> Keep your environment clean <!-- badges: start -->
-> [![Documentation](https://img.shields.io/badge/documentation-sponge-orange.svg?colorB=E91E63)](http://krzjoa.github.io/sponge/)
-> [![Travis build
-> status](https://travis-ci.org/krzjoa/sponge.svg?branch=master)](https://travis-ci.org/krzjoa/sponge)
-> [![AppVeyor build
-> status](https://ci.appveyor.com/api/projects/status/github/krzjoa/sponge?branch=master&svg=true)](https://ci.appveyor.com/project/krzjoa/sponge)
-> [![Buy hex
-> stciker](https://img.shields.io/badge/buy%20hex-sponge-green)](https://www.redbubble.com/people/krzjoa/works/44569100-sponge-r-package-hex?asc=u&kind=sticker&p=sticker&size=small)
-> <!-- badges: end -->
+> Keep your environment
+clean
+
+<!-- badges: start -->
+
+[![Documentation](https://img.shields.io/badge/documentation-sponge-orange.svg?colorB=E91E63)](http://krzjoa.github.io/sponge/)
+[![Travis build
+status](https://travis-ci.org/krzjoa/sponge.svg?branch=master)](https://travis-ci.org/krzjoa/sponge)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/krzjoa/sponge?branch=master&svg=true)](https://ci.appveyor.com/project/krzjoa/sponge)
+[![Buy hex
+stciker](https://img.shields.io/badge/buy%20hex-sponge-green)](https://www.redbubble.com/people/krzjoa/works/44569100-sponge-r-package-hex?asc=u&kind=sticker&p=sticker&size=small)
+<!-- badges: end -->
 
 A small utility which makes selective objects removing easier.
 

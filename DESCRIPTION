@@ -8,7 +8,9 @@ Authors@R:
              role    = c("aut", "cre"),
              email   = "joachimiak.krzysztof@gmail.com",
              comment = c(ORCID = "0000-0003-4780-7947"))
-Description: Provides a set of functions, which facilitates emoving objects from an environment. 
+Description: Provides a set of functions, which facilitates removing objects from an environment. 
+              It allows to delete objects specified with regular expession or with other conditions (e.g. if object is numeric),
+              using one function call.    
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
