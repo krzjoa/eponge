@@ -1,6 +1,6 @@
 #' @name erase_functions
 #' @title Remove (all) functions from environment
-#' @param pattern regex pattern to select a set of functions; default: NULL
+#' @param pattern regex pattern to select a set of objects; default: NULL
 #' @param envir environment; default: global environment
 #' @param verbose print removed objects' names
 #' @examples
@@ -8,11 +8,11 @@
 #' x <- cars
 #' y <- 1:20
 #' z <- function(x) x +2
-#' erase_functions()
+#' erase_functions(envir = environment())
 #' ls()
 #' @export
 erase_functions <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
-   .abstract_erase_by_type(list.function = lsf.str, envir = envir, verbose = verbose)
+   .abstract_erase_by_type(list.function = utils::lsf.str, envir = envir, verbose = verbose)
 }
 
 #' @name erase_data
@@ -22,7 +22,7 @@ erase_functions <- function(pattern = NULL, envir = globalenv(), verbose = FALSE
 #' cars.2 <- cars
 #' test_fun <- function(x) x + 2
 #' value <- 7
-#' erase_non_functions(verbose = TRUE)
+#' erase_non_functions(envir = environment(), verbose = TRUE)
 #' @export
 erase_data <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 
@@ -42,7 +42,7 @@ erase_data <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 #' cars.2 <- cars
 #' test_fun <- function(x) x + 2
 #' value <- 7
-#' erase_non_functions(verbose = TRUE)
+#' erase_non_functions(envir = environment(), verbose = TRUE)
 #' @export
 erase_values <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 
@@ -63,7 +63,7 @@ erase_values <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 #' cars.2 <- cars
 #' test_fun <- function(x) x + 2
 #' value <- 7
-#' erase_non_functions(verbose = TRUE)
+#' erase_non_functions(envir = environment(), verbose = TRUE)
 #' @export
 erase_non_functions <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 
@@ -83,7 +83,7 @@ erase_non_functions <- function(pattern = NULL, envir = globalenv(), verbose = F
 #' cars.2 <- cars
 #' test_fun <- function(x) x + 2
 #' value <- 7
-#' erase_non_functions(verbose = TRUE)
+#' erase_non_functions(envir = environment(), verbose = TRUE)
 #' @export
 erase_df <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 

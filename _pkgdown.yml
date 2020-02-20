@@ -10,12 +10,12 @@ reference:
   contents:
   - erase
   - erase_if
+  - erase_df
   - erase_data
   - erase_values
   - erase_functions
   - erase_non_functions
-  - erase_df
 - title: Erase masking objects from global environment
   contents:
-  - erase_masking_objects
+  - erase_masking
   - erase_masking_functions

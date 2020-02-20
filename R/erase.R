@@ -1,6 +1,6 @@
 #' @name erase
 #' @title Remove (all) objects from environment
-#' @param pattern regex pattern to select a set of functions; default: NULL
+#' @param pattern regex pattern to select a set of objects; default: NULL
 #' @param envir environment; default: global environment
 #' @param verbose print removed objects' names
 #' @examples
@@ -8,7 +8,8 @@
 #' x <- cars
 #' y <- 1:20
 #' z <- function(x) x +2
-#' erase()
+#' # Typically, we don't have to specify enironment
+#' erase(envir = environment())
 #' ls()
 #' @export
 erase <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
@@ -26,18 +27,26 @@ erase <- function(pattern = NULL, envir = globalenv(), verbose = FALSE){
 #' y <- 1:20
 #' z <- function(x) x +2
 #' l <- list(1,2,3,4)
-#' erase_if(is.list)
+#' erase_if(is.list, envir = environment())
 #' ls()
 #' # You may use lambda expression
-#' erase_if(~ is.function(.x) | is.data.frame(.x))
+#' create_data <- function() data.frame(a = 1:10, b = 11:20)
+#' x <- cars
+#' y <- 1:20
+#' z <- function(x) x +2
+#' l <- list(1,2,3,4)
+#' erase_if(~ is.function(.x) | is.data.frame(.x), envir = environment())
+#' ls()
 #' x <- 5
 #' sample_function <- function(x) x +2
 #' cars.2 <- cars
 #' erase_if(~ if (is.numeric(.x)) .x == 5 else FALSE)
+#' ls()
+#' @importFrom rlang as_function
 #' @export
 erase_if <- function(condition, pattern = NULL, envir = globalenv(), verbose = FALSE){
 
-  condition <- rlang::as_function(condition)
+  condition <- as_function(condition)
 
   filtering_function <- function(x){
     condition(get(x, envir = envir))

@@ -7,7 +7,7 @@
 erase(pattern = NULL, envir = globalenv(), verbose = FALSE)
 }
 \arguments{
-\item{pattern}{regex pattern to select a set of functions; default: NULL}
+\item{pattern}{regex pattern to select a set of objects; default: NULL}
 
 \item{envir}{environment; default: global environment}
 
@@ -21,6 +21,7 @@ create_data <- function() data.frame(a = 1:10, b = 11:20)
 x <- cars
 y <- 1:20
 z <- function(x) x +2
-erase()
+# Typically, we don't have to specify enironment
+erase(envir = environment())
 ls()
 }

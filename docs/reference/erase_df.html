@@ -97,7 +97,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/krzjoa/sponge">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -112,7 +117,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Remove all the `data.frame` objects</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/krzjoa/sponge/blob/master/R/erase-by-type.R'><code>R/erase-by-type.R</code></a></small>
     <div class="hidden name"><code>erase_df.Rd</code></div>
     </div>
 
@@ -127,7 +132,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>pattern</th>
-      <td><p>regex pattern to select a set of functions; default: NULL</p></td>
+      <td><p>regex pattern to select a set of objects; default: NULL</p></td>
     </tr>
     <tr>
       <th>envir</th>
@@ -144,7 +149,7 @@
     <pre class="examples"><div class='input'><span class='no'>cars.2</span> <span class='kw'>&lt;-</span> <span class='no'>cars</span>
 <span class='no'>test_fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='no'>x</span> + <span class='fl'>2</span>
 <span class='no'>value</span> <span class='kw'>&lt;-</span> <span class='fl'>7</span>
-<span class='fu'><a href='erase_non_functions.html'>erase_non_functions</a></span>(<span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Removed objects: "</div></pre>
+<span class='fu'><a href='erase_non_functions.html'>erase_non_functions</a></span>(<span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>environment</a></span>(), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Removed objects: cars.2, value"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

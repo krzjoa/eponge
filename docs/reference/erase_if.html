@@ -97,7 +97,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/krzjoa/sponge">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -112,7 +117,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Remove objects, which fulfill determined conditions</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/krzjoa/sponge/blob/master/R/erase.R'><code>R/erase.R</code></a></small>
     <div class="hidden name"><code>erase_if.Rd</code></div>
     </div>
 
@@ -132,7 +137,7 @@
     </tr>
     <tr>
       <th>pattern</th>
-      <td><p>regex pattern to select a set of functions; default: NULL</p></td>
+      <td><p>regex pattern to select a set of objects; default: NULL</p></td>
     </tr>
     <tr>
       <th>envir</th>
@@ -151,13 +156,20 @@
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>:<span class='fl'>20</span>
 <span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='no'>x</span> +<span class='fl'>2</span>
 <span class='no'>l</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>)
-<span class='fu'>erase_if</span>(<span class='no'>is.list</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>()</div><div class='output co'>#&gt; [1] "create_data" "l"           "x"           "y"           "z"          </div><div class='input'><span class='co'># You may use lambda expression</span>
-<span class='fu'>erase_if</span>(~ <span class='fu'><a href='https://rdrr.io/r/base/is.function.html'>is.function</a></span>(<span class='no'>.x</span>) <span class='kw'>|</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>is.data.frame</a></span>(<span class='no'>.x</span>))
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fl'>5</span>
+<span class='fu'>erase_if</span>(<span class='no'>is.list</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>environment</a></span>())
+<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>()</div><div class='output co'>#&gt; [1] "create_data" "y"           "z"          </div><div class='input'><span class='co'># You may use lambda expression</span>
+<span class='no'>create_data</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>() <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>10</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>11</span>:<span class='fl'>20</span>)
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>cars</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>:<span class='fl'>20</span>
+<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='no'>x</span> +<span class='fl'>2</span>
+<span class='no'>l</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>)
+<span class='fu'>erase_if</span>(~ <span class='fu'><a href='https://rdrr.io/r/base/is.function.html'>is.function</a></span>(<span class='no'>.x</span>) <span class='kw'>|</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>is.data.frame</a></span>(<span class='no'>.x</span>), <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>environment</a></span>())
+<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>()</div><div class='output co'>#&gt; [1] "l" "y"</div><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fl'>5</span>
 <span class='no'>sample_function</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='no'>x</span> +<span class='fl'>2</span>
 <span class='no'>cars.2</span> <span class='kw'>&lt;-</span> <span class='no'>cars</span>
-<span class='fu'>erase_if</span>(~ <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>is.numeric</a></span>(<span class='no'>.x</span>)) <span class='no'>.x</span> <span class='kw'>==</span> <span class='fl'>5</span> <span class='kw'>else</span> <span class='fl'>FALSE</span>)</div></pre>
+<span class='fu'>erase_if</span>(~ <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>is.numeric</a></span>(<span class='no'>.x</span>)) <span class='no'>.x</span> <span class='kw'>==</span> <span class='fl'>5</span> <span class='kw'>else</span> <span class='fl'>FALSE</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>()</div><div class='output co'>#&gt; [1] "cars.2"          "l"               "sample_function" "x"              
+#&gt; [5] "y"              </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

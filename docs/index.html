@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Keep Your Environment Clean">
-<meta property="og:description" content="A small utility which makes selective objects removing easier.">
+<meta property="og:description" content="Provides a set of functions, which facilitates emoving objects from an environment. ">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -57,7 +57,14 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/krzjoa/sponge">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -94,7 +101,7 @@
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(ID <span class="op">==</span><span class="st"> </span>id)</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">}</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">sponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/sponge/man/erase_masking_objects.html">erase_masking_functions</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb2-6" data-line-number="6">sponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/sponge/man/erase_masking.html">erase_masking_functions</a></span>()</a></code></pre></div>
 <p>Sometimes, we may want to tidy our messy enivornment: he have functions we would like to keep, while in the same time there are many temporary objects created in exploration.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">sponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/sponge/man/erase_data.html">erase_data</a></span>()</a></code></pre></div>
 </div>
@@ -102,7 +109,16 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div class="license">
+    <div class="links">
+<h2>Links</h2>
+<ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/krzjoa/sponge">https://​github.com/​krzjoa/​sponge</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/krzjoa/sponge/issues">https://​github.com/​krzjoa/​sponge/​issues</a>
+</li>
+</ul>
+</div>
+<div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
@@ -121,6 +137,8 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="http://krzjoa.github.io/sponge/"><img src="https://img.shields.io/badge/documentation-sponge-orange.svg?colorB=E91E63" alt="Documentation"></a></li>
+<li><a href="https://travis-ci.org/krzjoa/sponge"><img src="https://travis-ci.org/krzjoa/sponge.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://ci.appveyor.com/project/krzjoa/sponge"><img src="https://ci.appveyor.com/api/projects/status/github/krzjoa/sponge?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://www.redbubble.com/people/krzjoa/works/44569100-sponge-r-package-hex?asc=u&amp;kind=sticker&amp;p=sticker&amp;size=small"><img src="https://img.shields.io/badge/buy%20hex-sponge-green" alt="Buy hex stciker"></a></li>
 </ul>
 </div>

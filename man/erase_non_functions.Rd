@@ -8,7 +8,7 @@ erase_non_functions(pattern = NULL, envir = globalenv(),
   verbose = FALSE)
 }
 \arguments{
-\item{pattern}{regex pattern to select a set of functions; default: NULL}
+\item{pattern}{regex pattern to select a set of objects; default: NULL}
 
 \item{envir}{environment; default: global environment}
 
@@ -21,5 +21,5 @@ Remove all the objects, that are not functions
 cars.2 <- cars
 test_fun <- function(x) x + 2
 value <- 7
-erase_non_functions(verbose = TRUE)
+erase_non_functions(envir = environment(), verbose = TRUE)
 }

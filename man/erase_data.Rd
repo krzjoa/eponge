@@ -7,7 +7,7 @@
 erase_data(pattern = NULL, envir = globalenv(), verbose = FALSE)
 }
 \arguments{
-\item{pattern}{regex pattern to select a set of functions; default: NULL}
+\item{pattern}{regex pattern to select a set of objects; default: NULL}
 
 \item{envir}{environment; default: global environment}
 
@@ -20,5 +20,5 @@ Remove all objects, which are listed in `Data` section in RStudio
 cars.2 <- cars
 test_fun <- function(x) x + 2
 value <- 7
-erase_non_functions(verbose = TRUE)
+erase_non_functions(envir = environment(), verbose = TRUE)
 }

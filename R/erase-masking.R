@@ -1,15 +1,16 @@
-#' @name erase_masking_objects
+#' @name erase_masking
 #' @title Erase objects from GlobalEnv, which are masking objects from attached packages
 #' @param pattern a regex pattern
 #' @param verbose print removed objects' names
 #' @details We have to highglight, that for now it only allows us to remove objects from
 #' the Global Environment
 #' @examples
-#' matrix <- matrix(0, 3, 3)
-#' gamma <- 0.9
-#' erase_masking_objects(verbose = TRUE)
+#' assign('matrix', matrix(0, 3, 3), envir = globalenv())
+#' assign('gamma', 0.9, envir = globalenv())
+#' erase_masking(verbose = TRUE)
+#' ls(envir = globalenv())
 #' @export
-  erase_masking_objects <- function(pattern = NULL, verbose = FALSE){
+erase_masking <- function(pattern = NULL, verbose = FALSE){
   conflict.objects <- conflicts(detail = TRUE)
   global.ev.conflicts <- conflict.objects$.GlobalEnv
 
@@ -25,7 +26,7 @@
 
 }
 
-#' @rdname erase_masking_objects
+#' @rdname erase_masking
 #' @export
 erase_masking_functions <- function(pattern = NULL, verbose = FALSE){
   conflict.objects <- conflicts(detail = TRUE)
