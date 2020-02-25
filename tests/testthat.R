@@ -1,4 +1,4 @@
 library(testthat)
-library(sponge)
+library(eponge)
 
-test_check("sponge")
+test_check("eponge")
