@@ -14,8 +14,8 @@ Description: Provides a set of functions, which facilitates removing objects fro
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-BugReports: https://github.com/krzjoa/sponge/issues
-URL: https://github.com/krzjoa/sponge, https://krzjoa.github.io/sponge/
+BugReports: https://github.com/krzjoa/eponge/issues
+URL: https://github.com/krzjoa/eponge, https://krzjoa.github.io/eponge/
 RoxygenNote: 6.1.1
 Suggests: 
     testthat
