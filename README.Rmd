@@ -63,6 +63,9 @@ add_two <- function(x) x + 2
 eponge::erase_data(envir = environment())
 ```
 
+## Package name
+Package was originally named `sponge`, but it was changed in order to avoid name conflict with BioConductor package [SPONGE](https://www.bioconductor.org/packages/release/bioc/html/SPONGE.html). The current name comes from its French equivalent, 
+éponge (pronounce: e.pɔ̃ʒ).
 
 
 
