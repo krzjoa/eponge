@@ -98,7 +98,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/krzjoa/sponge">
+  <a href="https://github.com/krzjoa/eponge">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -117,7 +117,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Erase objects from GlobalEnv, which are masking objects from attached packages</h1>
-    <small class="dont-index">Source: <a href='https://github.com/krzjoa/sponge/blob/master/R/erase-masking.R'><code>R/erase-masking.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/krzjoa/eponge/blob/master/R/erase-masking.R'><code>R/erase-masking.R</code></a></small>
     <div class="hidden name"><code>erase_masking.Rd</code></div>
     </div>
 
@@ -142,20 +142,25 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>NULL (function returns nothing)</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>We have to highglight, that for now it only allows us to remove objects from
-the Global Environment</p>
+the Global Environment. Be careful: uncontrolled use may cause undesired side effects.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/assign.html'>assign</a></span>(<span class='st'>'matrix'</span>, <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>0</span>, <span class='fl'>3</span>, <span class='fl'>3</span>), <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span>())
-<span class='fu'><a href='https://rdrr.io/r/base/assign.html'>assign</a></span>(<span class='st'>'gamma'</span>, <span class='fl'>0.9</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span>())
-<span class='fu'>erase_masking</span>(<span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "gamma"  "matrix"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>(<span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span>())</div><div class='output co'>#&gt; character(0)</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># It works only if objects are assigned in the global environment</span>
+<span class='no'>matrix</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>0</span>, <span class='fl'>3</span>, <span class='fl'>3</span>)
+<span class='no'>gamma</span> <span class='kw'>&lt;-</span> <span class='fl'>0.9</span>
+<span class='fu'>erase_masking</span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>

@@ -4,21 +4,27 @@
 \alias{erase_data}
 \title{Remove all objects, which are listed in `Data` section in RStudio}
 \usage{
-erase_data(pattern = NULL, envir = globalenv(), verbose = FALSE)
+erase_data(pattern = NULL, envir = parent.frame(), verbose = FALSE)
 }
 \arguments{
 \item{pattern}{regex pattern to select a set of objects; default: NULL}
 
-\item{envir}{environment; default: global environment}
+\item{envir}{environment; default: caller environment}
 
 \item{verbose}{print removed objects' names}
 }
+\value{
+NULL (function returns nothing)
+}
 \description{
 Remove all objects, which are listed in `Data` section in RStudio
+}
+\details{
+Function can be used with envir = globalenv() argument.
 }
 \examples{
 cars.2 <- cars
 test_fun <- function(x) x + 2
 value <- 7
-erase_non_functions(envir = environment(), verbose = TRUE)
+erase_data(verbose = TRUE)
 }

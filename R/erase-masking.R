@@ -3,12 +3,13 @@
 #' @param pattern a regex pattern
 #' @param verbose print removed objects' names
 #' @details We have to highglight, that for now it only allows us to remove objects from
-#' the Global Environment
+#' the Global Environment. Be careful: uncontrolled use may cause undesired side effects.
+#' @return NULL (function returns nothing)
 #' @examples
-#' assign('matrix', matrix(0, 3, 3), envir = globalenv())
-#' assign('gamma', 0.9, envir = globalenv())
-#' erase_masking(verbose = TRUE)
-#' ls(envir = globalenv())
+#' # It works only if objects are assigned in the global environment
+#' matrix <- matrix(0, 3, 3)
+#' gamma <- 0.9
+#' erase_masking()
 #' @export
 erase_masking <- function(pattern = NULL, verbose = FALSE){
   conflict.objects <- conflicts(detail = TRUE)

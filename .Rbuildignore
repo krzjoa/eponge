@@ -1,4 +1,4 @@
-^sponge\.Rproj$
+^eponge\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^_pkgdown\.yml$
@@ -7,3 +7,4 @@
 ^LICENSE\.md$
 ^\.travis\.yml$
 ^appveyor\.yml$
+

@@ -44,9 +44,9 @@ cars <- 1:5
 eponge::erase_masking()
 ```
 
-Sometimes, we may want to tidy our messy enivornment: we have objects we
-would like to keep, while in the same time there are many temporary
-objects created in exploration.
+Sometimes, we may want to tidy our messy enivironment: we have objects
+we would like to keep, while in the same time there are many temporary
+objects created during the exploration.
 
 ``` r
 cars.2 <- cars
@@ -59,3 +59,10 @@ add_two <- function(x) x + 2
 # Normally, we don't have to pass envir argument, because it indicates global environment by default
 eponge::erase_data(envir = environment())
 ```
+
+## Package name
+
+Package was originally named `sponge`, but it was changed in order to
+avoid name conflict with BioConductor package
+[SPONGE](https://www.bioconductor.org/packages/release/bioc/html/SPONGE.html).
+The current name comes from its French equivalent, **éponge (e.pɔ̃ʒ)**.

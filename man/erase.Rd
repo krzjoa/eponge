@@ -4,17 +4,23 @@
 \alias{erase}
 \title{Remove (all) objects from environment}
 \usage{
-erase(pattern = NULL, envir = globalenv(), verbose = FALSE)
+erase(pattern = NULL, envir = parent.frame(), verbose = FALSE)
 }
 \arguments{
 \item{pattern}{regex pattern to select a set of objects; default: NULL}
 
-\item{envir}{environment; default: global environment}
+\item{envir}{environment; default: caller environment}
 
 \item{verbose}{print removed objects' names}
 }
+\value{
+NULL (function returns nothing)
+}
 \description{
 Remove (all) objects from environment
+}
+\details{
+Function can be used with envir = globalenv() argument.
 }
 \examples{
 create_data <- function() data.frame(a = 1:10, b = 11:20)
@@ -22,6 +28,6 @@ x <- cars
 y <- 1:20
 z <- function(x) x +2
 # Typically, we don't have to specify enironment
-erase(envir = environment())
+erase()
 ls()
 }

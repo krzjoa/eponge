@@ -18,8 +18,8 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Keep Your Environment Clean">
 <meta property="og:description" content="Provides a set of functions, which facilitates removing objects from an environment. 
-              It allows to delete objects specified with regular expession or with other conditions (e.g. if object is numeric),
-              using one function call.    ">
+             It allows to delete objects specified with regular expression or with other conditions (e.g. if object is numeric),
+             using one function call.    ">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -61,7 +61,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/krzjoa/sponge">
+  <a href="https://github.com/krzjoa/eponge">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -106,7 +106,7 @@
 <a class="sourceLine" id="cb2-6" data-line-number="6">cars &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">eponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/eponge/man/erase_masking.html">erase_masking</a></span>()</a></code></pre></div>
-<p>Sometimes, we may want to tidy our messy enivornment: we have objects we would like to keep, while in the same time there are many temporary objects created in exploration.</p>
+<p>Sometimes, we may want to tidy our messy enivironment: we have objects we would like to keep, while in the same time there are many temporary objects created during the exploration.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">cars<span class="fl">.2</span> &lt;-<span class="st"> </span>cars</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">cars<span class="fl">.2</span><span class="op">$</span>speed &lt;-<span class="st"> </span>cars<span class="fl">.2</span><span class="op">$</span>speed <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
@@ -117,6 +117,11 @@
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># Normally, we don't have to pass envir argument, because it indicates global environment by default</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">eponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/eponge/man/erase_data.html">erase_data</a></span>(<span class="dt">envir =</span> <span class="kw"><a href="https://rdrr.io/r/base/environment.html">environment</a></span>())</a></code></pre></div>
 </div>
+<div id="package-name" class="section level2">
+<h2 class="hasAnchor">
+<a href="#package-name" class="anchor"></a>Package name</h2>
+<p>Package was originally named <code>sponge</code>, but it was changed in order to avoid name conflict with BioConductor package <a href="https://www.bioconductor.org/packages/release/bioc/html/SPONGE.html">SPONGE</a>. The current name comes from its French equivalent, <strong>éponge (e.pɔ̃ʒ)</strong>.</p>
+</div>
 </div>
   </div>
 
@@ -124,9 +129,9 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/krzjoa/sponge">https://​github.com/​krzjoa/​sponge</a>
+<li>Browse source code at <br><a href="https://github.com/krzjoa/eponge">https://​github.com/​krzjoa/​eponge</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/krzjoa/sponge/issues">https://​github.com/​krzjoa/​sponge/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/krzjoa/eponge/issues">https://​github.com/​krzjoa/​eponge/​issues</a>
 </li>
 </ul>
 </div>

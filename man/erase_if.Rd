@@ -4,7 +4,7 @@
 \alias{erase_if}
 \title{Remove objects, which fulfill determined conditions}
 \usage{
-erase_if(condition, pattern = NULL, envir = globalenv(),
+erase_if(condition, pattern = NULL, envir = parent.frame(),
   verbose = FALSE)
 }
 \arguments{
@@ -12,12 +12,18 @@ erase_if(condition, pattern = NULL, envir = globalenv(),
 
 \item{pattern}{regex pattern to select a set of objects; default: NULL}
 
-\item{envir}{environment; default: global environment}
+\item{envir}{environment; default: caller environment}
 
 \item{verbose}{print removed objects' names}
 }
+\value{
+NULL (function returns nothing)
+}
 \description{
 Remove objects, which fulfill determined conditions
+}
+\details{
+Function can be used with envir = globalenv() argument.
 }
 \examples{
 create_data <- function() data.frame(a = 1:10, b = 11:20)
@@ -25,7 +31,7 @@ x <- cars
 y <- 1:20
 z <- function(x) x +2
 l <- list(1,2,3,4)
-erase_if(is.list, envir = environment())
+erase_if(is.list)
 ls()
 # You may use lambda expression
 create_data <- function() data.frame(a = 1:10, b = 11:20)
@@ -33,6 +39,6 @@ x <- cars
 y <- 1:20
 z <- function(x) x +2
 l <- list(1,2,3,4)
-erase_if(~ is.function(.x) | is.data.frame(.x), envir = environment())
+erase_if(~ is.function(.x) | is.data.frame(.x))
 ls()
 }

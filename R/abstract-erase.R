@@ -1,5 +1,5 @@
-.abstract_erase_by_type <- function(filtering.function = NULL, list.function = ls, pattern = NULL,
-                                    envir = globalenv(), verbose = FALSE){
+.abstract_erase <- function(filtering.function = NULL, list.function = ls, pattern = NULL,
+                                    envir = as.environment(-1), verbose = FALSE){
 
   if (is.null(pattern))
     objects <- list.function(envir = envir)

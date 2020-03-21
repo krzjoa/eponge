@@ -14,16 +14,19 @@ erase_masking_functions(pattern = NULL, verbose = FALSE)
 
 \item{verbose}{print removed objects' names}
 }
+\value{
+NULL (function returns nothing)
+}
 \description{
 Erase objects from GlobalEnv, which are masking objects from attached packages
 }
 \details{
 We have to highglight, that for now it only allows us to remove objects from
-the Global Environment
+the Global Environment. Be careful: uncontrolled use may cause undesired side effects.
 }
 \examples{
-assign('matrix', matrix(0, 3, 3), envir = globalenv())
-assign('gamma', 0.9, envir = globalenv())
-erase_masking(verbose = TRUE)
-ls(envir = globalenv())
+# It works only if objects are assigned in the global environment
+matrix <- matrix(0, 3, 3)
+gamma <- 0.9
+erase_masking()
 }
