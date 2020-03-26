@@ -3,11 +3,12 @@
 
 # eponge <img src='man/figures/logo.png' align="right" height="139" />
 
-> Keep your environment
-clean
+> Keep your environment clean
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/eponge)](https://CRAN.R-project.org/package=eponge)
 [![Documentation](https://img.shields.io/badge/documentation-eponge-orange.svg?colorB=E91E63)](http://krzjoa.github.io/eponge/)
 [![Travis build
 status](https://travis-ci.org/krzjoa/eponge.svg?branch=master)](https://travis-ci.org/krzjoa/eponge)
@@ -20,6 +21,14 @@ stciker](https://img.shields.io/badge/buy%20hex-eponge-green)](https://www.redbu
 A small utility which makes selective objects removing easier.
 
 ## Installation
+
+You can install `eponge` package from CRAN:
+
+``` r
+install.packages("eponge")
+```
+
+or from GitHub:
 
 ``` r
 # install.packages("devtools")

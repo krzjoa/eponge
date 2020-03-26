@@ -91,31 +91,34 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"krzjoa/eponge"</span>)</a></code></pre></div>
+<p>You can install <code>eponge</code> package from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"eponge"</span>)</a></code></pre></div>
+<p>or from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"krzjoa/eponge"</span>)</a></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>Many times we can meet a situation, when we want to clean our environment selectively. Suppose we just wrote a couple of functions, which have the same names as the ones existing in already attached libraries.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">filter &lt;-<span class="st"> </span><span class="cf">function</span>(x, id){</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  x <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(ID <span class="op">==</span><span class="st"> </span>id)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">cars &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">eponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/eponge/man/erase_masking.html">erase_masking</a></span>()</a></code></pre></div>
-<p>Sometimes, we may want to tidy our messy enivironment: we have objects we would like to keep, while in the same time there are many temporary objects created during the exploration.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">cars<span class="fl">.2</span> &lt;-<span class="st"> </span>cars</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">cars<span class="fl">.2</span><span class="op">$</span>speed &lt;-<span class="st"> </span>cars<span class="fl">.2</span><span class="op">$</span>speed <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">new.iris &lt;-<span class="st"> </span>iris[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, ]</a>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">filter &lt;-<span class="st"> </span><span class="cf">function</span>(x, id){</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  x <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(ID <span class="op">==</span><span class="st"> </span>id)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">}</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">add_two &lt;-<span class="st"> </span><span class="cf">function</span>(x) x <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">cars &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># Normally, we don't have to pass envir argument, because it indicates global environment by default</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">eponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/eponge/man/erase_data.html">erase_data</a></span>(<span class="dt">envir =</span> <span class="kw"><a href="https://rdrr.io/r/base/environment.html">environment</a></span>())</a></code></pre></div>
+<a class="sourceLine" id="cb3-8" data-line-number="8">eponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/eponge/man/erase_masking.html">erase_masking</a></span>()</a></code></pre></div>
+<p>Sometimes, we may want to tidy our messy enivironment: we have objects we would like to keep, while in the same time there are many temporary objects created during the exploration.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">cars<span class="fl">.2</span> &lt;-<span class="st"> </span>cars</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">cars<span class="fl">.2</span><span class="op">$</span>speed &lt;-<span class="st"> </span>cars<span class="fl">.2</span><span class="op">$</span>speed <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">new.iris &lt;-<span class="st"> </span>iris[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, ]</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">add_two &lt;-<span class="st"> </span><span class="cf">function</span>(x) x <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># Normally, we don't have to pass envir argument, because it indicates global environment by default</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">eponge<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/eponge/man/erase_data.html">erase_data</a></span>(<span class="dt">envir =</span> <span class="kw"><a href="https://rdrr.io/r/base/environment.html">environment</a></span>())</a></code></pre></div>
 </div>
 <div id="package-name" class="section level2">
 <h2 class="hasAnchor">
@@ -129,6 +132,8 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=eponge">https://​cloud.r-project.org/​package=eponge</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/krzjoa/eponge">https://​github.com/​krzjoa/​eponge</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/krzjoa/eponge/issues">https://​github.com/​krzjoa/​eponge/​issues</a>
@@ -153,6 +158,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=eponge"><img src="https://www.r-pkg.org/badges/version/eponge" alt="CRAN status"></a></li>
 <li><a href="http://krzjoa.github.io/eponge/"><img src="https://img.shields.io/badge/documentation-eponge-orange.svg?colorB=E91E63" alt="Documentation"></a></li>
 <li><a href="https://travis-ci.org/krzjoa/eponge"><img src="https://travis-ci.org/krzjoa/eponge.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/krzjoa/eponge"><img src="https://ci.appveyor.com/api/projects/status/github/krzjoa/eponge?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
